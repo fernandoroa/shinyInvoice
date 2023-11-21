@@ -1,0 +1,3 @@
+[submodule "inst/shinyApps/invoice_app"]
+	path = inst/shinyApps/invoice_app
+	url = https://github.com/fernandoroa/invoice-public
