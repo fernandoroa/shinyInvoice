@@ -11,7 +11,7 @@ Generate an invoice with any of: salary, one-liner costs, grouped costs in a tab
 \seealso{
 Useful links:
 \itemize{
-  \item \url{}
+  \item \url{https://github.com/fernandoroa/invoice-public}
   \item Report bugs at \url{https://github.com/fernandoroa/invoice-public/issues}
 }
 
