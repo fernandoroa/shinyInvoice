@@ -15,11 +15,20 @@ Imports:
     rlang,
     stringr,
     shiny
+Suggests:
+    fs,  
+    jsonlite,  
+    lubridate,  
+    pillar,  
+    readr,  
+    rhino,  
+    rjson,
+    shinyAce,  
+    tinytex,
+    rmarkdown
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
-Suggests: 
-    rmarkdown
 SystemRequirements: pandoc (>= 2.0)
 URL: https://github.com/fernandoroa/invoice-public
 BugReports: https://github.com/fernandoroa/invoice-public/issues
