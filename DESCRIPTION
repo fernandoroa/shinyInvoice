@@ -1,13 +1,14 @@
 Package: shinyInvoice
-Title: Shiny App. Pdf Invoice from Rmarkdown
+Title: Shiny App - Generate a Pdf Invoice with 'Rmarkdown'
 Version: 0.0.1
 Date: 2023-11-23
 Authors@R: c(person("Fernando", "Roa", email = "froao@ufg.br", role = c("aut", "cre") )
              )
-Description: Generate an invoice with any of: salary, one-liner costs, grouped costs in a table. Header with
-  invoice number, businesses details. Signature and bank account details under table. Pages numbered when more than one.
-  Source .json and .Rmd files editable in the app. Includes functions for getting exchange rates.
-Depends: R (>= 3.5)
+Description: Generate an invoice containing a header with invoice number and businesses details. The invoice table contains
+  any of: salary, one-liner costs, grouped costs. Under the table signature and bank account details appear. 
+  Pages are numbered when more than one. Source .json and .Rmd files are editable in the app. This package includes functions for 
+  getting exchange rates between currencies based on 'quantmod' (Ryan and Ulrich, 2023 <https://CRAN.R-project.org/package=quantmod>).
+Depends: R (>= 3.5) 
 Imports: 
     tibble,
     dplyr,

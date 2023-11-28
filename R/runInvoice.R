@@ -58,7 +58,7 @@ runInvoice <- function(installAll = FALSE) { # nolint
           }
         })
       } else {
-        return(print("bye"))
+        return(message("bye"))
       }
     }
   } else if (length(missPkg) && installAll) {
