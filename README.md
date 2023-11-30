@@ -2,6 +2,12 @@
 
 In this repository the app in the `inst` folder is a submodule
 
+#### Install package
+
+```
+install.packages("shinyInvoice")
+```
+
 #### How to run app in temp folder (default)
 
 After installing the package, run the function `shinyInvoice::runInvoice()`

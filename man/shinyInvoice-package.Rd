@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Fernando Roa \email{froao@ufg.br}
+\strong{Maintainer}: Fernando Roa \email{froao@unal.edu.co}
 
 }
 \keyword{internal}
