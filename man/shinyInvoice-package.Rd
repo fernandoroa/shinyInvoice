@@ -6,7 +6,7 @@
 \alias{shinyInvoice-package}
 \title{shinyInvoice: Shiny App - Generate a Pdf Invoice with 'Rmarkdown'}
 \description{
-Generate an invoice containing a header with invoice number and businesses details. The invoice table contains any of: salary, one-liner costs, grouped costs. Under the table signature and bank account details appear. Pages are numbered when more than one. Source .json and .Rmd files are editable in the app. This package includes functions for getting exchange rates between currencies based on 'quantmod' (Ryan and Ulrich, 2023 \url{https://CRAN.R-project.org/package=quantmod}).
+Generate an invoice containing a header with invoice number and businesses details. The invoice table contains any of: salary, one-liner costs, grouped costs. Under the table signature and bank account details appear. Pages are numbered when more than one. Source .json and .Rmd files are editable in the app. A .csv file with raw data can be downloaded. This package includes functions for getting exchange rates between currencies based on 'quantmod' (Ryan and Ulrich, 2023 \url{https://CRAN.R-project.org/package=quantmod}).
 }
 \seealso{
 Useful links:

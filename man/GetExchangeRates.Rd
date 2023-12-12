@@ -35,15 +35,25 @@ data.frame
 numeric vector
 }
 \description{
-get_exchange_rates_symbol: uses getSymbol
+get_exchange_rates_symbol: uses getSymbols
 
-GetExchangeRates: uses getFX and getSymbol
+GetExchangeRates: uses getFX and getSymbols
 }
 \examples{
 from_curr <- c("CAD", "JPY", "USD")
 to_curr <- c("USD", "USD", "EUR")
 
 \donttest{
+
+# get_exchange_rates_symbol and try_exchange_rates_direct_and_indirect
+# use quantmod::getSymbols, which requires a working curl, as in:
+
+if (requireNamespace("curl", quietly = TRUE)) {
+  con <- curl::curl(url = "https://hb.cran.dev/get", open = "r", handle = curl::new_handle())
+  print(con)
+  close(con)
+}
+
 # Success
 recent_date <- as.character(Sys.Date() - 7)
 GetExchangeRates(from_curr = from_curr, to_curr = to_curr, recent_date, recent_date)
@@ -51,7 +61,7 @@ GetExchangeRates(from_curr = from_curr, to_curr = to_curr, recent_date, recent_d
 # last date mismatch day
 GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-27", "2023-10-30")
 
-# weekend, warning, gets only FX, fails for getSymbol
+# weekend, warning, gets only FX, fails for getSymbols
 
 GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-28", "2023-10-28")
 GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-29", "2023-10-29")
@@ -60,13 +70,13 @@ GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-07-08", "2023-0
 # fails for FX, > 180 days
 GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-04-03", "2023-04-05")
 
-# failure for getSymbol, when none is USD
+# failure for getSymbols, when none is USD
 GetExchangeRates(from_curr = "BRL", to_curr = "COP", "2023-07-07")
 
-# getSymbol success
+# getSymbols success
 get_exchange_rates_symbol(from_curr = from_curr, to_curr = to_curr, "2023-07-03", "2023-07-05")
 
-# getSymbol > 180 days ok
+# getSymbols > 180 days ok
 get_exchange_rates_symbol(from_curr = from_curr, to_curr = to_curr, "2023-04-03", "2023-04-05")
 
 # failure, weekend days
