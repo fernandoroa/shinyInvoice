@@ -2,8 +2,8 @@
 #' @aliases get_exchange_rates_symbol, try_exchange_rates_direct_and_indirect
 #' @title Functions get_exchange_rates_symbol, try_exchange_rates_direct_and_indirect
 #'   and GetExchangeRates
-#' @description get_exchange_rates_symbol: uses getSymbol
-#' @description GetExchangeRates: uses getFX and getSymbol
+#' @description get_exchange_rates_symbol: uses getSymbols
+#' @description GetExchangeRates: uses getFX and getSymbols
 #'
 #' @param from_curr character, currency symbol
 #' @param to_curr character, currency symbol
@@ -27,6 +27,16 @@
 #' to_curr <- c("USD", "USD", "EUR")
 #'
 #' \donttest{
+#'
+#' # get_exchange_rates_symbol and try_exchange_rates_direct_and_indirect
+#' # use quantmod::getSymbols, which requires a working curl, as in:
+#'
+#' if (requireNamespace("curl", quietly = TRUE)) {
+#'   con <- curl::curl(url = "https://hb.cran.dev/get", open = "r", handle = curl::new_handle())
+#'   print(con)
+#'   close(con)
+#' }
+#'
 #' # Success
 #' recent_date <- as.character(Sys.Date() - 7)
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, recent_date, recent_date)
@@ -34,7 +44,7 @@
 #' # last date mismatch day
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-27", "2023-10-30")
 #'
-#' # weekend, warning, gets only FX, fails for getSymbol
+#' # weekend, warning, gets only FX, fails for getSymbols
 #'
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-28", "2023-10-28")
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-29", "2023-10-29")
@@ -43,13 +53,13 @@
 #' # fails for FX, > 180 days
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-04-03", "2023-04-05")
 #'
-#' # failure for getSymbol, when none is USD
+#' # failure for getSymbols, when none is USD
 #' GetExchangeRates(from_curr = "BRL", to_curr = "COP", "2023-07-07")
 #'
-#' # getSymbol success
+#' # getSymbols success
 #' get_exchange_rates_symbol(from_curr = from_curr, to_curr = to_curr, "2023-07-03", "2023-07-05")
 #'
-#' # getSymbol > 180 days ok
+#' # getSymbols > 180 days ok
 #' get_exchange_rates_symbol(from_curr = from_curr, to_curr = to_curr, "2023-04-03", "2023-04-05")
 #'
 #' # failure, weekend days
@@ -92,14 +102,14 @@ GetExchangeRates <- function(from_curr, to_curr, from_date, to_date = from_date)
         set_names(~ (.) |> str_replace_all(ready_name, ""))
     },
     from_curr, to_curr,
-    SIMPLIFY = F
+    SIMPLIFY = FALSE
   )
   names(result_getFX) <- exchanges
   result_getFX <- result_getFX |> bind_rows(.id = "exchange")
 
   result_getSymbols <- try(get_exchange_rates_symbol(from_curr, to_curr, from_date, to_date), silent = TRUE)
   if (inherits(result_getSymbols, "try-error")) {
-    warning("getSymbol unavailable for weekends or between two non-dollar currencies")
+    warning("getSymbols unavailable for weekends or between two non-dollar currencies")
     return(result_getFX)
   }
   merge(result_getFX, result_getSymbols,

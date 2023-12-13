@@ -1,3 +1,11 @@
+# shinyInvoice 0.0.3
+
+12-12-2023
+
+Features:
+
+- .csv download option in app
+
 # shinyInvoice 0.0.2
 
 30-11-2023
