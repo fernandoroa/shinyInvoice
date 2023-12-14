@@ -1,4 +1,8 @@
-### shinyInvoice package
+<img src=man/figures/logo.png align="right" width="12%" hspace="50">
+
+# shinyInvoice <br><br><br>
+
+### Generate a Pdf Invoice with 'Rmarkdown'<br>
 
 In this repository the app in the `inst` folder is a submodule
 
