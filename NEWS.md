@@ -6,6 +6,10 @@ Fix:
 
 - download of .json files
 
+Features:
+
+- bump month everywhere button
+
 # shinyInvoice 0.0.3
 
 12-12-2023
