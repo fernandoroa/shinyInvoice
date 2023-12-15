@@ -1,3 +1,11 @@
+# shinyInvoice in development
+
+15-12-2023
+
+Fix:
+
+- download of .json files
+
 # shinyInvoice 0.0.3
 
 12-12-2023
