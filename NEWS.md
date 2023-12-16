@@ -1,14 +1,17 @@
 # shinyInvoice in development
 
-15-12-2023
+16-12-2023
 
 Fix:
 
 - download of .json files
+- bump dates when last day of month
+- consider leap years when bumping
 
 Features:
 
 - bump month everywhere button
+- function to bump dates by month
 
 # shinyInvoice 0.0.3
 

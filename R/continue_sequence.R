@@ -1,9 +1,10 @@
 #' @name continue_sequence
-#' @aliases continue_sequence, duplicate_last_list_element
-#' @title Functions continue_sequence and duplicate_last_list_element
+#' @aliases continue_sequence, duplicate_last_list_element, date_bump_month
+#' @title Functions continue_sequence, duplicate_last_list_element and date_bump_month
 #' @description continue_sequence: suffix increase, i.e. from 1 to 2, from a to b
 #' @description duplicate_last_list_element: copies last element from list and
 #' bumps its name
+#' @description date_bump_month: increases or decreases date by one month
 #'
 #' @param chr_vector character, vector
 #' @param sep character, separating prefix from suffix
@@ -88,4 +89,30 @@ duplicate_last_list_element <- function(list) {
   last_element <- list[length(list)]
   names(last_element) <- new_name
   last_element
+}
+
+#' @rdname continue_sequence
+#' @param date, date
+#' @param decrease, boolean
+#' @importFrom lubridate year month day
+#' @return date
+#' @examples
+#' date_bump_month(as.Date("2024-02-29"))
+#' @export
+date_bump_month <- function(date, decrease = FALSE) {
+  year <- year(date)
+  if (year %in% leap_years) {
+    mon_span[3] <- 29
+  }
+  mon <- month(date)
+  day <- day(date)
+
+  modifier <- ifelse(day == mon_span[mon + 1], 1, 0)
+
+  if (!decrease) {
+    return(date + mon_span[mon + 1 + modifier])
+  } else {
+    subtract <- ifelse(day > mon_span[mon], day, mon_span[mon + modifier])
+    date - subtract
+  }
 }

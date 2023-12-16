@@ -3,12 +3,16 @@
 \name{continue_sequence}
 \alias{continue_sequence}
 \alias{continue_sequence,}
+\alias{duplicate_last_list_element,}
+\alias{date_bump_month}
 \alias{duplicate_last_list_element}
-\title{Functions continue_sequence and duplicate_last_list_element}
+\title{Functions continue_sequence, duplicate_last_list_element and date_bump_month}
 \usage{
 continue_sequence(chr_vector, sep = "_", factor = 1)
 
 duplicate_last_list_element(list)
+
+date_bump_month(date, decrease = FALSE)
 }
 \arguments{
 \item{chr_vector}{character, vector}
@@ -18,20 +22,29 @@ duplicate_last_list_element(list)
 \item{factor}{numeric, increase or decrease sequence}
 
 \item{list, }{list}
+
+\item{date, }{date}
+
+\item{decrease, }{boolean}
 }
 \value{
 vector
 
 data.frame
+
+date
 }
 \description{
 continue_sequence: suffix increase, i.e. from 1 to 2, from a to b
 
 duplicate_last_list_element: copies last element from list and
 bumps its name
+
+date_bump_month: increases or decreases date by one month
 }
 \examples{
 continue_sequence(c("a_1", "a_2"))
 duplicate_last_list_element(list(a_1 = "1", b_1 = "random"))
+date_bump_month(as.Date("2024-02-29"))
 }
 \keyword{sequential}
