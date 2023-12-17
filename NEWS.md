@@ -1,12 +1,13 @@
 # shinyInvoice in development
 
-16-12-2023
+17-12-2023
 
 Fix:
 
 - download of .json files
 - bump dates when last day of month
 - consider leap years when bumping
+- correct .Rmd extension for Android download
 
 Features:
 
