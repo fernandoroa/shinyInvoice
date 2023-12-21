@@ -1,6 +1,6 @@
-# shinyInvoice in development
+# shinyInvoice 0.0.4
 
-17-12-2023
+19-12-2023
 
 Fix:
 
