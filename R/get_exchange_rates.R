@@ -45,6 +45,7 @@
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-27", "2023-10-30")
 #'
 #' # weekend, warning, gets only FX, fails for getSymbols
+#' # update this dates to less than 180 days!
 #'
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-28", "2023-10-28")
 #' GetExchangeRates(from_curr = from_curr, to_curr = to_curr, "2023-10-29", "2023-10-29")
