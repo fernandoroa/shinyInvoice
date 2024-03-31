@@ -1,3 +1,12 @@
+# shinyInvoice 0.0.5
+
+31-03-2024
+
+Features:
+
+- bump month to present month everywhere button
+- New `show` field in bank account details to hide them
+
 # shinyInvoice 0.0.4
 
 19-12-2023
