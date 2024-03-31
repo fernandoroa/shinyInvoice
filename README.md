@@ -4,7 +4,7 @@
 
 ### Generate a Pdf Invoice with 'Rmarkdown'<br>
 
-In this repository the app in the `inst` folder is a submodule
+In this repository the app in the `inst` folder is a submodule  
 Module Repository: https://github.com/fernandoroa/invoice-public
 
 #### Install package
